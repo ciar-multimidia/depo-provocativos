@@ -19,6 +19,7 @@ $fonte-titulos: 'Oswald',sans-serif;
 
 @mixin tam-container() {
 	width: 1110px;
+	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	padding-left: 10px;
@@ -27,6 +28,7 @@ $fonte-titulos: 'Oswald',sans-serif;
 
 @mixin tam-conteudo() {
 	width: 740px;
+	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	padding-left: 10px;
@@ -40,6 +42,24 @@ $fonte-titulos: 'Oswald',sans-serif;
     @include justify-content($dir);
 }
 
+@font-face {
+  font-family: 'fontello';
+  src: url('font/fontello.eot?45269957');
+  src: url('font/fontello.eot?45269957#iefix') format('embedded-opentype'),
+       url('font/fontello.woff2?45269957') format('woff2'),
+       url('font/fontello.woff?45269957') format('woff'),
+       url('font/fontello.ttf?45269957') format('truetype'),
+       url('font/fontello.svg?45269957#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* @media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?45269957#fontello') format('svg');
+  }
+} */
 
 /****************************************
  ----------------------------------------
@@ -51,7 +71,7 @@ html, body{ overflow-x: hidden }
 
 body {
 	background: $cor3;
-	font-size: 18px;
+	font-size: 17px;
 	line-height: 1.7;
 	overflow-x: hidden; 
 	font-family: $fonte-texto;
@@ -100,22 +120,32 @@ h1, h2, h3, h4, h5 {
 
 	.card {
 		width: calc(50% - 20px);
-		background: $cor4;
+		background-color: transparentize(darken($cor3, 13%),0.15);
+		background-position:  110% 114%;
+		background-repeat: no-repeat;
 		padding: 20px 20px 100px;
 		border-radius: 10px;
 		box-shadow: 0 0 10px transparentize(#000,0.4);
 		margin-bottom: 40px;
+		font-weight: 300;
+		color: darken($cor4,10%);
+		text-shadow: 1px 1px 1px $cor1;
+
+		&.nucleo-1 { background-image: url('../img/nuc1.png'); }
+		&.nucleo-2 { background-image: url('../img/nuc2.png'); }
+		&.nucleo-3 { background-image: url('../img/nuc3.png'); }
+		&.nucleo-4 { background-image: url('../img/nuc4.png'); }
 
 		h2, h3 {margin: 0;}
 
-		h2 {color: lighten($cor3,10%); font-size: 1.5em}
+		h2 {color: lighten($cor3,18%); font-size: 1.6em }
 
 		h3 {
-			font-weight: bold;
 			font-family: $fonte-texto;
 			text-transform: uppercase;
-			font-size: 12px;
+			font-size: 11px;
 			letter-spacing: 0.01em;
+			color: lighten($cor2,10%);
 		}
 
 		& > div {
@@ -124,6 +154,41 @@ h1, h2, h3, h4, h5 {
 			a {
 				color: inherit;
 				display: block;
+				position: relative;
+				text-decoration: none;
+				padding: 8px 0;
+
+				&:before {
+					content: '\f1c1';
+					font-family: "fontello";
+					font-style: normal;
+					font-weight: normal;
+					speak: none;
+					display: inline-block;
+					text-decoration: none;
+					margin-right: 8px;
+					text-align: center;
+					font-variant: normal;
+					text-transform: none;
+					color: $cor4;
+					line-height: 30px;
+					width: 30px;
+					height: 30px;
+					vertical-align: middle;
+					font-size: 14px;
+					background: $cor2;
+					border-radius: 50%;
+					@include transition(background 0.3s ease-in-out);
+
+				}
+
+				&.apresenta:before {content: '\e800';}
+
+				&:hover {
+					text-decoration: underline;
+
+					&:before {background: lighten($cor3,10%);}
+				}
 			}
 		}
 	}
