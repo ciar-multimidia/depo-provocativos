@@ -207,10 +207,11 @@ a.download-ebook {
 	margin: 20px 0 0 0;
 	padding: 0;
 	list-style: none;
+	font-size: 0.9em;
 	counter-reset: numeboks -1;
 
 	li {
-		padding: 8px 0;
+		padding: 5px 0;
 		
 
 		&:before {			
@@ -285,6 +286,8 @@ a.download-ebook {
 			color: inherit;
 			position: relative;
 			text-decoration: none;
+			font-size: 1.2em;
+			font-weight: bold;
 
 			&:hover {text-decoration: underline;}
 		}
@@ -430,11 +433,11 @@ a.download-ebook {
 			text-transform: uppercase;
 			color: $cor2;
 			padding-bottom: 0;
-			font-size: 1em;
+			font-size: .9em;
 
 			& + h2 {
 				padding-top: 0;
-				text-align: center;
+				text-align: left;
 				font-size: 1.9em;
 			}
 		}
